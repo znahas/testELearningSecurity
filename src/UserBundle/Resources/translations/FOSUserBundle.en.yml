@@ -1,0 +1,10 @@
+# Password resetting
+resetting:
+    request:
+        invalid_username: The username address "%username%" does not exist.
+        username: "Username:"
+
+# Form field labels
+form:
+    password_confirmation: "Confirm new password:"
+    new_password_confirmation: "Confirm new password:"

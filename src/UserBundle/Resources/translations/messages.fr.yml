@@ -1,0 +1,29 @@
+# Profile
+profile:
+    profile: Mon profil
+    show:
+        firstname: Prénom
+        lastname:  Nom de famille
+        timezone: Fuseau horaire
+
+users: Utilisateurs
+
+security:
+    login:
+        forgot_password: Mot de passe oublié ?
+
+'Language': Langue
+
+user:
+    name:       "Nom"
+    username:   "Nom d'utilisateur"
+    phone:      "Téléphone"
+    email:      "Adresse e-mail"
+    user_admin: "Administration des utilisateurs"
+    firstname:  "Prénom"
+    lastname:   "Nom de famille"
+    create_new: "Créer un nouvel utilisateur"
+
+    language:
+        french:     "Français"
+        english:    "Anglais"

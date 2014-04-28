@@ -1,0 +1,11 @@
+
+<li>
+    {{ node.name }}
+    {% if node.__children %}
+        <ul>
+        {% for c in node.__children %}
+            {% include "ThemeBundle:Partial:treeChild.html.twig" with {'node': c} %}
+        {% endfor %}
+        </ul>
+    {% endif %}
+</li>

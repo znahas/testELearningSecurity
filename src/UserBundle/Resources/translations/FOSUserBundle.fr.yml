@@ -1,0 +1,4 @@
+resetting:
+    request:
+        invalid_username: Le nom d'utilisateur "%username%" n'existe pas.
+        username: "Nom d'utilisateur :"

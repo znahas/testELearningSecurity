@@ -1,0 +1,5 @@
+imports:
+    - { resource: config_prod.yml }
+
+swiftmailer:
+    delivery_address: %mailer_delivery_address%

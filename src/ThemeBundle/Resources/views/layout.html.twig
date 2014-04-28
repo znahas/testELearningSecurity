@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en"{% block html %}{% endblock html %}>
+
+{% block head %}
+    <head>
+        <meta charset="UTF-8" />
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.css') }}">
+            {% stylesheets
+            '@ThemeBundle/Resources/public/css/bootstrap-combobox.css'
+            '@ThemeBundle/Resources/public/css/datepicker.css'
+            '@ThemeBundle/Resources/public/css/jquery.tablesorter.pager.css'
+            '@ThemeBundle/Resources/public/css/main.css' %}
+            <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
+            {% endstylesheets %}
+        {% endblock stylesheets %}
+
+        {% block head_script %}{% endblock head_script %}
+
+        <title>{% block title %}{{ "site.name"|trans }}{% endblock title %}</title>
+
+        {% block head_bottom %}{% endblock head_bottom %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+{% endblock head %}
+
+{% block body_tag %}
+<body data-spy="scroll">
+{% endblock body_tag %}
+
+{% block body_start %}
+{% endblock body_start %}
+
+{% block body %}
+    {% block navbar %}{% endblock navbar %}
+
+{% block container %}
+    <div class="{% block container_class %}container{% endblock container_class %}">
+        {% block header %}{% endblock header %}
+
+        <div class="content">
+            {% block flashes %}
+                {% if app.session.flashbag.peekAll|length > 0 %}
+                    <div class="row container">
+                        {% for key, messages in app.session.getFlashBag() %}
+                            {% for message in messages %}
+                                {% if key == 'html' %}
+                                    <div class="alert alert-dismissable alert-success">
+                                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                        {{ message|raw }}
+                                    </div>
+                                {% else %}
+                                    <div class="alert alert-{{ key }}">
+                                        {{ message|trans({}, 'FOSUserBundle') }}
+                                    </div>
+                                {% endif %}
+
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endblock flashes %}
+
+            {% if block('breadcrumb') is not empty %}
+                <ul class="breadcrumb">{% block breadcrumb %}{% endblock breadcrumb %}</ul>
+            {% endif %}
+
+            {% block page_header %}
+                {% if block('headline') is not empty %}
+                    <div class="page-header">
+                        <h1>{% block headline %}{% endblock headline %}</h1>
+                    </div>
+                {% endif %}
+            {% endblock page_header %}
+
+            {% block content_row %}
+                <div class="row">
+                    <div class="container">
+                        {% block fos_user_content %}{% endblock fos_user_content %}
+                        {% block content %}{% endblock content %}
+                    </div>
+                </div>
+            {% endblock content_row %}
+        </div>
+
+    </div> <!-- /container -->
+{% endblock container %}
+    <footer>
+        {% block footer %}
+
+            <div class="footer text-center">
+
+            </div>
+        {% endblock footer %}
+    </footer>
+
+{% block foot_script %}
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{{ asset('js/jquery.js') }}"><\/script>')</script>
+    {% javascripts
+    'js/bootstrap.js'
+    '@ThemeBundle/Resources/public/js/jquery.numeric.js'
+    '@ThemeBundle/Resources/public/js/jquery.tablesorter.min.js'
+    '@ThemeBundle/Resources/public/js/jquery.tablesorter.widgets-filter-formatter.min.js'
+    '@ThemeBundle/Resources/public/js/jquery.tablesorter.widgets.min.js'
+    '@ThemeBundle/Resources/public/js/jquery.tablesorter.pager.min.js'
+    '@ThemeBundle/Resources/public/js/typeahead.js'
+    '@ThemeBundle/Resources/public/js/bootstrap-combobox.js'
+    '@ThemeBundle/Resources/public/js/bootstrap-datepicker.js'
+    '@ThemeBundle/Resources/public/js/bootstrap-datetimepicker.js'
+    '@ThemeBundle/Resources/public/js/main.js' %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock foot_script %}
+    {% block javascript_foot %}
+    {% endblock %}
+{% endblock body %}
+</body>
+</html>

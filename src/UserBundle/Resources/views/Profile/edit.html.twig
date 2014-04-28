@@ -1,0 +1,17 @@
+{% extends "::layout.html.twig" %}
+
+{% block fos_user_content %}
+    <div class="col-md-3">
+        <div class="form">
+            <fieldset>
+                <legend>{{ 'profile.profile'|trans }}</legend>
+                <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="fos_user_profile_edit">
+                    {{ form_widget(form) }}
+
+                    <input type="submit" value="{{ 'profile.edit.submit'|trans({}, 'FOSUserBundle') }}" class="btn btn-default btn-primary" />
+
+                </form>
+            </fieldset>
+        </div>
+    </div>
+{% endblock fos_user_content %}

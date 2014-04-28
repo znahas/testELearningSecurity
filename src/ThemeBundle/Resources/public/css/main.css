@@ -1,0 +1,54 @@
+table.hasStickyHeaders th, .containsStickyHeaders th
+{
+    background-color : #cdcdcd;
+}
+
+.tablesorter-headerAsc, .tablesorter-headerDesc
+{
+    background-color : #d9edf7 !important;
+}
+
+label.error
+{
+    color : red;
+}
+
+.help-inline
+{
+    color : red;
+}
+
+.modal-body
+{
+    overflow-y : visible;
+}
+
+.line-seperator
+{
+    border-bottom : 1px solid #eeeeee;
+
+}
+
+.datepicker.dropdown-menu
+{
+    z-index : 2000;
+}
+
+.modal .combobox-container .typeahead
+{
+    z-index : 9000;
+}
+
+.container
+{
+    max-width : 1500px !important;
+    /*max-width : none !important;*/
+}
+
+
+label.required:after
+{
+    content : " *";
+    color   : red;
+}
+

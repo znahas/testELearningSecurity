@@ -1,0 +1,27 @@
+# Profile
+profile:
+    profile: My Profile
+    show:
+        firstname: Firstname
+        lastname:  Lastname
+        timezone: Timezone
+
+users: Users
+
+security:
+    login:
+        forgot_password: "Forgot password ?"
+
+user:
+    name:       "Name"
+    username:   "Username"
+    phone:      "Phone"
+    email:      "Email"
+    user_admin: "User Admin"
+    firstname:  "Firsname"
+    lastname:   "Lastname"
+    create_new: "Create New User"
+
+    language:
+        french:     "French"
+        english:    "English"

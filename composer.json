@@ -1,0 +1,95 @@
+{
+    "name"             : "Guestbook",
+    "license"          : "propritary",
+    "type"             : "project",
+    "description"      : "Guestbook test",
+    "autoload"         : {
+        "psr-0": {
+            "": "src/"
+        }
+    },
+    "require"          : {
+        "php"                                 : ">=5.3.3",
+        "symfony/symfony"                     : "2.3.*",
+        "doctrine/orm"                        : ">=2.2.3,<2.4-dev",
+        "doctrine/doctrine-bundle"            : "1.2.*",
+        "twig/extensions"                     : "1.0.*",
+        "symfony/assetic-bundle"              : "2.3.*",
+        "symfony/swiftmailer-bundle"          : "2.3.*",
+        "symfony/monolog-bundle"              : "2.3.*",
+        "sensio/distribution-bundle"          : "2.3.*",
+        "sensio/framework-extra-bundle"       : "2.3.*",
+        "sensio/generator-bundle"             : "2.3.*",
+        "incenteev/composer-parameter-handler": "~2.0",
+
+        "symfony/icu"                             : "1.2.*",
+        "jms/di-extra-bundle"                     : "1.4.*@dev",
+        "jms/security-extra-bundle"               : "1.5.*@dev",
+        "friendsofsymfony/user-bundle"            : "~2.0@dev",
+        "stof/doctrine-extensions-bundle"         : "dev-master",
+        "jmikola/wildcard-event-dispatcher-bundle": "dev-master",
+        "jms/serializer-bundle"                   : "dev-master",
+        "braincrafted/bootstrap-bundle"           : "dev-develop",
+        "twbs/bootstrap"                          : "3.0.0",
+        "jquery/jquery"                           : "1.10.*",
+        "leafo/lessphp"                           : "0.4.*",
+
+        "doctrine/data-fixtures"             : "dev-master",
+        "doctrine/doctrine-fixtures-bundle"  : "dev-master",
+        "doctrine/migrations"                : "dev-master",
+        "doctrine/doctrine-migrations-bundle": "dev-master",
+
+        "elcweb/common-bundle": "dev-master"
+
+
+    },
+    "scripts"          : {
+        "post-install-cmd": [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ],
+        "post-update-cmd" : [
+            "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile"
+        ]
+    },
+    "config"           : {
+        "bin-dir": "bin"
+    },
+    "minimum-stability": "stable",
+    "extra"            : {
+        "symfony-app-dir"     : "app",
+        "symfony-web-dir"     : "web",
+        "incenteev-parameters": {
+            "file": "app/config/parameters.yml"
+        },
+        "branch-alias"        : {
+            "dev-master": "2.3-dev"
+        }
+    },
+    "repositories"     : [
+        {
+            "type"   : "package",
+            "package": {
+                "name"   : "jquery/jquery",
+                "version": "1.10.2",
+                "dist"   : {
+                    "url" : "http://code.jquery.com/jquery-1.10.2.js",
+                    "type": "file"
+                }
+            }
+        },
+        {
+            "name": "braincrafted/bootstrap-bundle",
+            "type": "vcs",
+            "url" : "https://github.com/elcweb/bootstrap-bundle.git"
+        }
+
+    ]
+}
